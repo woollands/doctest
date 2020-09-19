@@ -1,0 +1,67 @@
+\hypertarget{namespacemain}{}\doxysection{main Namespace Reference}
+\label{namespacemain}\index{main@{main}}
+
+
+Simple shooting method.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacemain_af0a74a07cc05dc7e7968e781089611d4}\label{namespacemain_af0a74a07cc05dc7e7968e781089611d4}} 
+def \mbox{\hyperlink{namespacemain_af0a74a07cc05dc7e7968e781089611d4}{residuals}} (tspan, states0, statesf)
+\begin{DoxyCompactList}\small\item\em Computes the error between the current and desired final state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacemain_a05a80a15d82253099b94f3df928b5592}\label{namespacemain_a05a80a15d82253099b94f3df928b5592}} 
+def {\bfseries eom} (t, x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacemain_a98ca913a0d71a612efa021e1ce5593ac}\label{namespacemain_a98ca913a0d71a612efa021e1ce5593ac}} 
+{\bfseries elm0} = np.\+array(\mbox{[}500+6378, 0, np.\+deg2rad(45), np.\+deg2rad(0), np.\+deg2rad(0), np.\+deg2rad(0), 0, cn.\+mu\mbox{]})
+\item 
+\mbox{\Hypertarget{namespacemain_aa3ac4e0d59832c6e046a9d4a295a407d}\label{namespacemain_aa3ac4e0d59832c6e046a9d4a295a407d}} 
+{\bfseries states0} = sp.\+conics(elm0,0)
+\item 
+\mbox{\Hypertarget{namespacemain_ad5ce1025fc6ad7237bd834e0f0d1de72}\label{namespacemain_ad5ce1025fc6ad7237bd834e0f0d1de72}} 
+{\bfseries statesf} = sp.\+prop2b(cn.\+mu,states0,3600)
+\item 
+\mbox{\Hypertarget{namespacemain_aebb92f00fd3d8ed670ba9110874513d8}\label{namespacemain_aebb92f00fd3d8ed670ba9110874513d8}} 
+{\bfseries elmf} = sp.\+oscelt(statesf,0,cn.\+mu)
+\item 
+\mbox{\Hypertarget{namespacemain_ad7b4c5d314363cce1c929f7849a2f78e}\label{namespacemain_ad7b4c5d314363cce1c929f7849a2f78e}} 
+{\bfseries tspan} = np.\+array(\mbox{[}0,3600\mbox{]})
+\item 
+\mbox{\Hypertarget{namespacemain_a1c59dd20ae405cb6a7fca389c9ecb12d}\label{namespacemain_a1c59dd20ae405cb6a7fca389c9ecb12d}} 
+{\bfseries v0} = np.\+array(\mbox{[}0,7,0\mbox{]})
+\item 
+\mbox{\Hypertarget{namespacemain_a8d216d76ebd2f897ab8010e2890ee21e}\label{namespacemain_a8d216d76ebd2f897ab8010e2890ee21e}} 
+{\bfseries x} = fsolve(\mbox{\hyperlink{namespacemain_af0a74a07cc05dc7e7968e781089611d4}{residuals}},tspan,states0,statesf)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple shooting method. 
+
+Solves a simple problem to demonstrate the shooting method. \begin{DoxyAuthor}{Author}
+Robyn Woollands 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020-\/09-\/17 
+\end{DoxyDate}
+\begin{DoxyPrecond}{Precondition}
+Requires Boost Library (\href{https://www.boost.org}{\texttt{ https\+://www.\+boost.\+org}}) 
+
+Requires S\+P\+I\+CE Toolkit (\href{https://naif.jpl.nasa.gov/naif/toolkit.html}{\texttt{ https\+://naif.\+jpl.\+nasa.\+gov/naif/toolkit.\+html}}) 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]No bugs known \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+May fail to converge for poor initial costate guess 
+\end{DoxyWarning}
+\begin{DoxyCopyright}{Copyright}
+Woollands Research Group, Dept. Aerospace Engineering, U\+I\+UC 
+\end{DoxyCopyright}
